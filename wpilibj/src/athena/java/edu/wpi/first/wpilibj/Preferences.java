@@ -87,7 +87,7 @@ public class Preferences {
    * @return a list of the keys
    */
   public List<String> getKeys() {
-	  return new ArrayList<>(m_table.getKeys());
+    return new ArrayList<>(m_table.getKeys());
   }
 
   /**
