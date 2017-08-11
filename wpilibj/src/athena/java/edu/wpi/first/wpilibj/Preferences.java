@@ -7,7 +7,8 @@
 
 package edu.wpi.first.wpilibj;
 
-import java.util.Vector;
+import java.util.List;
+import java.util.ArrayList;
 
 import edu.wpi.first.wpilibj.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.wpilibj.hal.HAL;
@@ -80,13 +81,13 @@ public class Preferences {
     m_table.addTableListenerEx(m_listener, ITable.NOTIFY_NEW | ITable.NOTIFY_IMMEDIATE);
     HAL.report(tResourceType.kResourceType_Preferences, 0);
   }
-
+  
   /**
-   * Gets the vector of keys.
-   * @return a vector of the keys
+   * Gets a list of keys.
+   * @return a list of the keys
    */
-  public Vector<String> getKeys() {
-    return new Vector<>(m_table.getKeys());
+  public List<String> getKeys() {
+	  return new ArrayList<>(m_table.getKeys());
   }
 
   /**
