@@ -81,7 +81,7 @@ public class Preferences {
     m_table.addTableListenerEx(m_listener, ITable.NOTIFY_NEW | ITable.NOTIFY_IMMEDIATE);
     HAL.report(tResourceType.kResourceType_Preferences, 0);
   }
-  
+
   /**
    * Gets a list of keys.
    * @return a list of the keys
