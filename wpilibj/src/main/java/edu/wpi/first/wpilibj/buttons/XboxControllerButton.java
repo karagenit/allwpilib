@@ -56,7 +56,30 @@ public class XboxControllerButton extends Button {
    * @return The value of the controller button
    */
   public boolean get() {
-    return m_controller.getRawButton(m_buttonNumber);
+    switch(m_buttonNumber) {
+      case Button.kBumperLeft.value:
+        return m_controller.getBumper(XboxController.Hand.kLeft);
+      case Button.kBumperRight.value:
+        return m_controller.getBumper(XboxController.Hand.kRight);
+      case Button.kStickLeft.value:
+        return m_controller.getStickButton(XboxController.Hand.kLeft);
+      case Button.kStickRight.value:
+        return m_controller.getStickButton(XboxController.Hand.kRight);
+      case Button.kA.value:
+        return m_controller.getAButton();
+      case Button.kB.value:
+        return m_controller.getBButton();
+      case Button.kX.value:
+        return m_controller.getXButton();
+      case Button.kY.value:
+        return m_controller.getYButton();
+      case Button.kBack.value:
+        return m_controller.getBackButton();
+      case Button.kStart.value:
+        return m_controller.getStartButton();
+      default:
+        return false; //shouldn't ever reach this point
+    }
   }
 
   /**
