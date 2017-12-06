@@ -17,27 +17,20 @@ public class XboxControllerButton extends Button {
    * Represents a digital button on an XboxController.
    */
   private enum Button {
-    kBumperLeft(5),
-    kBumperRight(6),
-    kStickLeft(9),
-    kStickRight(10),
-    kA(1),
-    kB(2),
-    kX(3),
-    kY(4),
-    kBack(7),
-    kStart(8);
-
-    @SuppressWarnings("MemberName")
-    private int value;
-
-    Button(int value) {
-      this.value = value;
-    }
+    kBumperLeft,
+    kBumperRight,
+    kStickLeft,
+    kStickRight,
+    kA,
+    kB,
+    kX,
+    kY,
+    kBack,
+    kStart;
   }
 
   private final XboxController m_controller;
-  private final int m_buttonNumber;
+  private final XboxControllerButton.Button m_button;
 
   /**
    * Create an Xbox Controller button for triggering commands.
@@ -47,7 +40,7 @@ public class XboxControllerButton extends Button {
    */
   private XboxControllerButton(XboxController controller, XboxControllerButton.Button button) {
     m_controller = controller;
-    m_buttonNumber = button.value;
+    m_button = button;
   }
 
   /**
@@ -56,26 +49,26 @@ public class XboxControllerButton extends Button {
    * @return The value of the controller button
    */
   public boolean get() {
-    switch(m_buttonNumber) {
-      case Button.kBumperLeft.value:
+    switch (m_button) {
+      case kBumperLeft:
         return m_controller.getBumper(XboxController.Hand.kLeft);
-      case Button.kBumperRight.value:
+      case kBumperRight:
         return m_controller.getBumper(XboxController.Hand.kRight);
-      case Button.kStickLeft.value:
+      case kStickLeft:
         return m_controller.getStickButton(XboxController.Hand.kLeft);
-      case Button.kStickRight.value:
+      case kStickRight:
         return m_controller.getStickButton(XboxController.Hand.kRight);
-      case Button.kA.value:
+      case kA:
         return m_controller.getAButton();
-      case Button.kB.value:
+      case kB:
         return m_controller.getBButton();
-      case Button.kX.value:
+      case kX:
         return m_controller.getXButton();
-      case Button.kY.value:
+      case kY:
         return m_controller.getYButton();
-      case Button.kBack.value:
+      case kBack:
         return m_controller.getBackButton();
-      case Button.kStart.value:
+      case kStart:
         return m_controller.getStartButton();
       default:
         return false; //shouldn't ever reach this point
