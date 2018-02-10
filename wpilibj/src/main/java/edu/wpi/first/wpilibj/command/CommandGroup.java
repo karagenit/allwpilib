@@ -206,6 +206,14 @@ public class CommandGroup extends Command {
     }
   }
 
+  public final synchronized void addSimultaneous(Command ... commands) {
+    CommandGroup cg = new CommandGroup();
+    for (Command cmd : commands) {
+      cg.addParallel(cmd);
+    }
+    addSequential(cg);
+  }
+
   @SuppressWarnings("MethodName")
   void _initialize() {
     m_currentCommandIndex = -1;
